@@ -6,7 +6,7 @@ import ErrorContext from '../context/ErrorContext.js';
 import './style.css';
 import config from '../../config';
 
-const Chat = () => {
+const Chat = ({ darkMode }) => {
   const [messages, setMessages] = useState([]);
   const [isActive, setActive] = useState(false);
   const messagesEndRef = useRef(null);
@@ -131,27 +131,27 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat-wrapper">
+    <div className={`chat-wrapper ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="messages-container d-flex flex-column">
         {messages.map((message, index) => (
-          <Message key={index} message={message} />
+          <Message key={index} message={message} darkMode={darkMode} />
         ))}
         <div ref={messagesEndRef} />
       </div>
       <div className="input-container">
         <textarea
           ref={inputRef}
-          className="chat-input"
+          className={`chat-input ${darkMode ? 'dark-mode' : 'light-mode'}`}
           placeholder={isActive ? 'Type a message...' : 'Please upload or select a file.'}
-          onInput={handleInput} // Adjust height dynamically
+          onInput={handleInput}
           onKeyDown={(e) => {
             if (isActive && e.key === 'Enter' && e.target.value.trim() !== '') {
-              e.preventDefault(); // Prevent new line
+              e.preventDefault();
               handleSendClick();
             }
           }}
         />
-        <button onClick={handleSendClick} className="btn-send">
+        <button onClick={handleSendClick} className={`btn-send ${darkMode ? 'dark-mode' : 'light-mode'}`}>
           <i className="bi bi-send"></i>
         </button>
       </div>
