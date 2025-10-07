@@ -117,8 +117,10 @@ const Chat = ({ darkMode }) => {
   const handleInput = () => {
     const input = inputRef.current;
     if (input) {
-      input.style.height = 'auto'; // Reset height to calculate new height
+      input.style.height = `30px`; // Reset height to calculate new height
       input.style.height = `${Math.min(input.scrollHeight, 96)}px`; // Max height for 4 lines
+      console.log(input.scrollHeight);
+    } else {
     }
   };
 
@@ -140,6 +142,7 @@ const Chat = ({ darkMode }) => {
       </div>
       <div className="input-container">
         <textarea
+          id="chat-input"
           ref={inputRef}
           className={`chat-input ${darkMode ? 'dark-mode' : 'light-mode'}`}
           placeholder={isActive ? 'Type a message...' : 'Please upload or select a file.'}
