@@ -119,7 +119,6 @@ const Chat = ({ darkMode }) => {
     if (input) {
       input.style.height = `30px`; // Reset height to calculate new height
       input.style.height = `${Math.min(input.scrollHeight, 96)}px`; // Max height for 4 lines
-      console.log(input.scrollHeight);
     } else {
     }
   };
