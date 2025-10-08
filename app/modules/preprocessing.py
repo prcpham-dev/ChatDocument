@@ -99,7 +99,9 @@ class DocumentProcessor:
 
     def load_document(self):
         """
-        Indexing document, returns VectorStoreRetriever
+        Checks if a Redis vector store for the document exists; creates one if not.
+        Returns:
+            Redis: The Redis vector store object for the document.
         """
         try:
             logging.info("Loading file name:" + self.file_id)
