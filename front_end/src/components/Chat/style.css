@@ -71,6 +71,7 @@ p {
   opacity: 0;
   animation: fadeIn 0.2s ease forwards;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
 }
 
 .user .message-content {
